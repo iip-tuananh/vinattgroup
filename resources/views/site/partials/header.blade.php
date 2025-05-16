@@ -77,10 +77,10 @@
                         <div class="octf-col menu-col no-padding">
                             <nav id="site-navigation" class="main-navigation nav-text-dark">
                                 <ul class="menu">
-                                    <li class="menu-item-has-children current-menu-item current-menu-ancestor">
+                                    <li class="{{ Route::is('front.home-page') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="{{ route('front.home-page') }}">Home</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children {{ Route::is('front.about-us') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="{{ route('front.about-us') }}">Pages</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('front.about-us') }}">About Us</a></li>
@@ -88,7 +88,7 @@
                                             <li><a href="{{ route('front.video-gallery') }}">Video</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children {{ Route::is('front.service-list') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="javascript:void(0)">Services</a>
                                         <ul class="sub-menu">
                                             @foreach ($services as $service)
@@ -98,7 +98,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children mega-dropdown">
+                                    <li class="menu-item-has-children mega-dropdown {{ Route::is('front.product-list') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="javascript:void(0)">Products</a>
                                         <ul class="mega-sub-menu">
                                             <li class="row">
@@ -116,7 +116,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children {{ Route::is('front.list-blog') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="javascript:void(0)">Blog</a>
                                         <ul class="sub-menu">
                                             @foreach ($postCategories as $category)
@@ -126,7 +126,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="{{ route('front.contact-us') }}">Contacts</a></li>
+                                    <li><a href="{{ route('front.contact-us') }}" {{ Route::is('front.contact-us') ? 'current-menu-item current-menu-ancestor' : '' }}>Contacts</a></li>
                                 </ul>
                             </nav>
                         </div>
