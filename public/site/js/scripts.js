@@ -559,8 +559,11 @@
      });
 
      $(".project-slider-4item").owlCarousel({
-        nav:false,
+        nav:true,
         dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         loop:true,
         navText: ['<i class="ot-flaticon-left-arrow"></i>', '<i class="ot-flaticon-right-arrow"></i>'],
         responsive:{
