@@ -246,11 +246,12 @@
                                 <div class="icon-main"><img src="{{ $service->image->path ?? '' }}" alt="">
                                 </div>
                                 <div class="content-box">
-                                    <h5><a href="servcies-detail-1.html">{{ $service->name }}</a></h5>
+                                    <h5><a href="{{ route('front.service-detail', $service->slug) }}">{{ $service->name }}</a></h5>
                                     <p>{{ $service->description }}</p>
                                 </div>
                                 <div class="link-box">
-                                    <a href="servcies-detail-1.html" class="btn-details">READ MORE</a>
+                                    <a href="{{ route('front.service-detail', $service->slug) }}"
+                                        class="btn-details">READ MORE</a>
                                 </div>
                             </div>
                         </div>

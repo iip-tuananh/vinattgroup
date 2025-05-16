@@ -40,11 +40,11 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0">
                 <div class="widget-footer widget-contact">
-                    <h6>Latest Projects</h6>
+                    <h6>Latest Services</h6>
                     <ul>
-                        <li><a href="#">Stylish Family Appartment</a></li>
-                        <li><a href="#">Modern Villa in Belgium</a></li>
-                        <li><a href="#">Private House in Spain</a></li>
+                        @foreach ($services as $service)
+                            <li><a href="{{ route('front.service-detail', $service->slug) }}">{{ $service->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

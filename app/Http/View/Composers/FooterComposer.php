@@ -8,6 +8,7 @@ use App\Model\Admin\Consultant;
 use App\Model\Admin\Partner;
 use App\Model\Admin\Policy;
 use App\Model\Admin\PostCategory;
+use App\Model\Admin\Service;
 use App\Model\Admin\Store;
 use Illuminate\View\View;
 
@@ -21,7 +22,7 @@ class FooterComposer
     {
         $config = Config::query()->get()->first();
         $policies = Policy::query()->where('status', true)->latest()->get();
-
+        $services = Service::query()->where('status', 1)->latest()->get();
         $productCategories = Category::query()->with(['childs'])
             ->where(['type' => 1, 'parent_id' => 0])
             ->orderBy('sort_order')
@@ -29,15 +30,15 @@ class FooterComposer
         $postCategories = PostCategory::query()->where(['parent_id' => 0, 'show_home_page' => 1])->latest()->get();
 
         // đối tác
-        $partners = Partner::query()->latest()->get();
+        // $partners = Partner::query()->latest()->get();
 
-        $store = Store::query()->latest()->first();
+        // $store = Store::query()->latest()->first();
 
-        $nhanvien = Consultant::query()->latest()->get();
+        // $nhanvien = Consultant::query()->latest()->get();
 
-        $allProductCategories = Category::query()->orderBy('sort_order')->get();
+        // $allProductCategories = Category::query()->orderBy('sort_order')->get();
 
 
-        $view->with(['config' => $config, 'policies' => $policies, 'product_categories' => $productCategories, 'post_categories' => $postCategories, 'partners' => $partners, 'store' => $store, 'nhanvien' => $nhanvien, 'allProductCategories' => $allProductCategories]);
+        $view->with(['config' => $config, 'policies' => $policies, 'product_categories' => $productCategories, 'post_categories' => $postCategories, 'services' => $services]);
     }
 }
