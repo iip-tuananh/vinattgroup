@@ -9023,7 +9023,7 @@ ul.style-default li:last-child, ol.style-default li:last-child {
 .de-video-content h1 {
     color: #FFF;
     font-size: 60px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     line-height: 1;
     font-weight: 200;
     text-transform: uppercase;

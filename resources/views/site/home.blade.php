@@ -122,6 +122,7 @@
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <h1>Welcome to {{ $config->web_title }}</h1>
+                                <div style="margin-bottom: 40px">{!! $banners[0]->intro !!}</div>
                                 <a href="{{ route('front.about-us') }}" class="octf-btn">View Our Work</a>
                             </div>
                         </div>
