@@ -29,12 +29,12 @@ Route::group(['prefix' => 'admin'], function () {
 
         // Menu Catalog
         Route::group(['prefix' => 'categories'], function() {
-            Route::get('/create', 'Admin\CategoryController@create')->name('Category.create');
-            Route::post('/', 'Admin\CategoryController@store')->name('Category.store');
-            Route::post('/{id}/update', 'Admin\CategoryController@update')->name('Category.update');
-            Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('Category.edit');
-            Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('Category.delete');
-            Route::get('/', 'Admin\CategoryController@index')->name('Category.index');
+            Route::get('/create', 'Admin\CategoryController@create')->name('Category.create')->middleware('checkPermission:Thêm danh mục hàng hóa');
+            Route::post('/', 'Admin\CategoryController@store')->name('Category.store')->middleware('checkPermission:Thêm danh mục hàng hóa');
+            Route::post('/{id}/update', 'Admin\CategoryController@update')->name('Category.update')->middleware('checkPermission:Sửa danh mục hàng hóa');
+            Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('Category.edit')->middleware('checkPermission:Sửa danh mục hàng hóa');
+            Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('Category.delete')->middleware('checkPermission:Xóa danh mục hàng hóa');
+            Route::get('/', 'Admin\CategoryController@index')->name('Category.index')->middleware('checkPermission:Quản lý danh mục hàng hóa');
             Route::get('/searchData', 'Admin\CategoryController@searchData')->name('Category.searchData');
             Route::post('/nested-sort', 'Admin\CategoryController@nestedSort')->name('Category.nestedSort');
             Route::get('/{id}/getDataForEdit', 'Admin\CategoryController@getDataForEdit')->name('Category.get.data.edit');

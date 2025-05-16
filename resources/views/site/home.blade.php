@@ -388,7 +388,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12 text-lg-right align-self-center">
                         <div class="ot-button">
-                            <a href="blog.html" class="octf-btn octf-btn-dark border-hover-dark">View all</a>
+                            <a href="javascript:void(0)" class="octf-btn octf-btn-dark border-hover-dark">View all</a>
                         </div>
                     </div>
                 </div>

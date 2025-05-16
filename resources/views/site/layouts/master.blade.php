@@ -328,18 +328,6 @@
             });
         })(jQuery);
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"
-        integrity="sha512-rFun1mEMg3sNDcSjeGP35cLIycsS+og/QtN6WWnoSviHU9ykMLNQp7D1uuG1AzTV2w0VmyFVpszi2QJwiVW6oQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#flipbook").turn({
-                width: 400,
-                height: 300,
-                autoCenter: true
-            });
-        });
-    </script>
 
     <!-- Google Translate -->
     <script type="text/javascript">

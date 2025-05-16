@@ -27,18 +27,20 @@ class PermissionsTableSeeder extends Seeder
         Permission::createRecord(['id' => 4, 'name' => 'Thêm danh mục hàng hóa', 'display_name' => 'Tạo mới', 'group' => 'Quản lý danh mục hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         Permission::createRecord(['id' => 5, 'name' => 'Sửa danh mục hàng hóa', 'display_name' => 'Sửa', 'group' => 'Quản lý danh mục hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         Permission::createRecord(['id' => 6, 'name' => 'Xóa danh mục hàng hóa', 'display_name' => 'Xóa', 'group' => 'Quản lý danh mục hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 7, 'name' => 'Quản lý danh mục hàng hóa', 'display_name' => 'Quản lý', 'group' => 'Quản lý danh mục hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
-        Permission::createRecord(['id' => 7, 'name' => 'Thêm hàng hóa', 'display_name' => 'Tạo mới', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 8, 'name' => 'Sửa hàng hóa', 'display_name' => 'Sửa', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 9, 'name' => 'Xóa hàng hóa', 'display_name' => 'Xóa', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
+        Permission::createRecord(['id' => 8, 'name' => 'Thêm hàng hóa', 'display_name' => 'Tạo mới', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 9, 'name' => 'Sửa hàng hóa', 'display_name' => 'Sửa', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 10, 'name' => 'Xóa hàng hóa', 'display_name' => 'Xóa', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 11, 'name' => 'Quản lý hàng hóa', 'display_name' => 'Quản lý', 'group' => 'Quản lý hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
         Permission::createRecord(['id' => 10, 'name' => 'Thêm thuộc tính hàng hóa', 'display_name' => 'Tạo mới', 'group' => 'Danh mục thuộc tính hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         Permission::createRecord(['id' => 11, 'name' => 'Sửa thuộc tính hàng hóa', 'display_name' => 'Sửa', 'group' => 'Danh mục thuộc tính hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         Permission::createRecord(['id' => 12, 'name' => 'Xóa thuộc tính hàng hóa', 'display_name' => 'Xóa', 'group' => 'Danh mục thuộc tính hàng hóa'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
-        Permission::createRecord(['id' => 13, 'name' => 'Thêm mã giảm giá', 'display_name' => 'Tạo mới', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 14, 'name' => 'Sửa mã giảm giá', 'display_name' => 'Sửa', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 15, 'name' => 'Xóa mã giảm giá', 'display_name' => 'Xóa', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
+        Permission::createRecord(['id' => 13, 'name' => 'Thêm mã giảm giá', 'display_name' => 'Tạo mới', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 14, 'name' => 'Sửa mã giảm giá', 'display_name' => 'Sửa', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 15, 'name' => 'Xóa mã giảm giá', 'display_name' => 'Xóa', 'group' => 'Danh mục mã giảm giá'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
         Permission::createRecord(['id' => 16, 'name' => 'Thêm danh mục bài viết', 'display_name' => 'Tạo mới', 'group' => 'Quản lý danh mục bài viết'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         Permission::createRecord(['id' => 17, 'name' => 'Sửa danh mục bài viết', 'display_name' => 'Sửa', 'group' => 'Quản lý danh mục bài viết'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
@@ -62,11 +64,11 @@ class PermissionsTableSeeder extends Seeder
 
         Permission::createRecord(['id' => 31, 'name' => 'Quản lý danh mục khách hàng liên hệ', 'display_name' => 'Quản lý', 'group' => 'Quản lý danh mục khách hàng liên hệ'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
-        Permission::createRecord(['id' => 32, 'name' => 'Quản lý đơn hàng', 'display_name' => 'Quản lý', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 33, 'name' => 'Xuất excel đơn hàng', 'display_name' => 'Xuất excel', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 34, 'name' => 'Import excel đơn hàng', 'display_name' => 'Import excel', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 35, 'name' => 'Xem chi tiết đơn hàng', 'display_name' => 'Xem chi tiết', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
-        Permission::createRecord(['id' => 36, 'name' => 'Cập nhật trạng thái đơn hàng', 'display_name' => 'Cập nhật trạng thái', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN, User::NGUOI_BAN_HANG]);
+        Permission::createRecord(['id' => 32, 'name' => 'Quản lý đơn hàng', 'display_name' => 'Quản lý', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 33, 'name' => 'Xuất excel đơn hàng', 'display_name' => 'Xuất excel', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 34, 'name' => 'Import excel đơn hàng', 'display_name' => 'Import excel', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 35, 'name' => 'Xem chi tiết đơn hàng', 'display_name' => 'Xem chi tiết', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
+        Permission::createRecord(['id' => 36, 'name' => 'Cập nhật trạng thái đơn hàng', 'display_name' => 'Cập nhật trạng thái', 'group' => 'Quản lý đơn hàng'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
 
         // Permission::createRecord(['id' => 37, 'name' => 'Quản lý yêu cầu affiliate link', 'display_name' => 'Quản lý', 'group' => 'Quản lý yêu cầu affiliate link'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
         // Permission::createRecord(['id' => 38, 'name' => 'Cập nhật trạng thái yêu cầu affiliate link', 'display_name' => 'Cập nhật trạng thái', 'group' => 'Quản lý yêu cầu affiliate link'], [User::SUPER_ADMIN, User::QUAN_TRI_VIEN]);
