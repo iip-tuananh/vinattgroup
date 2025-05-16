@@ -317,6 +317,7 @@
     <script src="/site/js/revolution-plugin.js"></script>
     <!-- REVOLUTION SLIDER SCRIPT FILES -->
     <script src="/site/js/rev-script-3.js"></script>
+    <script src="/site/js/jquery.mb.YTPlayer.min.js"></script>
     <script>
         window.jQuery = window.$ = jQuery;
         (function($) {
@@ -328,7 +329,12 @@
             });
         })(jQuery);
     </script>
-
+    <script>
+        (function($) {
+            "use strict";
+            jQuery(".player").mb_YTPlayer();
+        })(jQuery);
+    </script>
     <!-- Google Translate -->
     <script type="text/javascript">
         function googleTranslateElementInit() {

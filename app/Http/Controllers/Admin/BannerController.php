@@ -56,7 +56,9 @@ class BannerController extends Controller
             ->addColumn('action', function ($object) {
                 $result = '';
                 $result .= '<a href="javascript:void(0)" title="Sửa" class="btn btn-sm btn-primary edit"><i class="fas fa-pencil-alt"></i></a> ';
-                $result .= '<a href="' . route($this->route . '.delete', $object->id) . '" title="Xóa" class="btn btn-sm btn-danger confirm"><i class="fas fa-times"></i></a>';
+                if ($object->id != 13) {
+                    $result .= '<a href="' . route($this->route . '.delete', $object->id) . '" title="Xóa" class="btn btn-sm btn-danger confirm"><i class="fas fa-times"></i></a>';
+                }
                 return $result;
             })
             ->addIndexColumn()

@@ -9,6 +9,7 @@
     {{ url('' . $banners[0]->image->path) }}
 @endsection
 @section('css')
+    <link rel="stylesheet" href="/site/css/jquery.mb.YTPlayer.min.css" type="text/css">
     <style>
         .limit-3-lines {
             overflow: hidden;
@@ -21,7 +22,7 @@
 @endsection
 @section('content')
     <div id="content" class="site-content">
-        <div class="banner-3">
+        {{-- <div class="banner-3">
             <div class="grid-lines grid-lines-vertical">
                 <span class="g-line-vertical line-left color-line-default"></span>
                 <span class="g-line-vertical line-right color-line-default"></span>
@@ -112,7 +113,31 @@
                     <div class="tp-bannertimer"></div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        <section id="section-video-bg" class="full-height text-light flex-middle">
+            <div class="de-video-overlay"></div>
+            <div class="de-video-container">
+                <div class="de-video-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h1>Welcome to {{ $config->web_title }}</h1>
+                                <a href="{{ route('front.about-us') }}" class="octf-btn">View Our Work</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Background - Here you need to replace the videoURL with your youtube video URL -->
+                @php
+                    $video_youtube = $banners[0]->link;
+                    parse_str(parse_url($video_youtube, PHP_URL_QUERY), $params);
+                    $videoId = $params['v'] ?? null;
+                @endphp
+                <a id="bgndVideo" class="player" data-property="{videoURL:'{{ $videoId }}',containment:'#section-video-bg',autoPlay:true, mute:false, startAt:5, opacity:1}">youtube</a>
+            </div>
+        </section>
+        <div class="space-90"></div>
         <section class="about-3 p-xl-0 pb-sm-0">
             <div class="grid-lines grid-lines-vertical">
                 <span class="g-line-vertical line-left color-line-default"></span>
