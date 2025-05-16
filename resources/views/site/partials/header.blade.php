@@ -296,7 +296,7 @@
                     <img src="{{$config->image->path ?? ''}}" alt="{{$config->web_title ?? ''}}">
                 </a>
             </div>
-            <div class="ot-heading">
+            {{-- <div class="ot-heading">
                 <h2 class="main-heading">Our Gallery</h2>
             </div>
             <div class="image-gallery">
@@ -362,7 +362,7 @@
                         </div>
                     </figure>
                 </div>
-            </div>
+            </div> --}}
             <div class="ot-heading ">
                 <h2 class="main-heading">Contact Info</h2>
             </div>
