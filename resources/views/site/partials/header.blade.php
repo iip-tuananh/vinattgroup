@@ -236,7 +236,18 @@
                                             <a href="{{ route('front.home-page') }}">Home</a>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="{{ route('front.about-us') }}">About Us</a>
+                                            <a href="{{ route('front.about-us') }}">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a
+                                                        href="{{ route('front.about-us') }}">About Us</a>
+                                                </li>
+                                                <li><a
+                                                        href="{{ route('front.about-us') }}#catalogue">Catalogue</a>
+                                                </li>
+                                                <li><a
+                                                        href="{{ route('front.video-gallery') }}">Video</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li class="menu-item-has-children">
                                             <a href="javascript:void(0)">Services</a>
