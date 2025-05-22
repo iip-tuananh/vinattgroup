@@ -61,7 +61,7 @@
 </style>
 <header id="site-header" class="site-header {{ Route::is('front.home-page') ? 'header-transparent' : '' }}" ng-cloak>
     <!-- Main Header start -->
-    <div class="octf-main-header is-fixed">
+    <div class="octf-main-header main-header-s3 main-header-slight is-fixed">
         <div class="octf-area-wrap">
             <div class="container-fluid octf-mainbar-container">
                 <div class="octf-mainbar">
