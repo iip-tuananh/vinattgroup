@@ -19,6 +19,12 @@
     </div>
 </div>
 <style>
+    @media (max-width: 768px) {
+        .header-top {
+            display: none;
+        }
+    }
+
     .header-top {
         background-color: #000;
         color: #fff;
@@ -104,7 +110,7 @@
                                             <li class="row">
                                                 @foreach ($productCategories as $category)
                                                     <ul class="col">
-                                                        <li class="menu-title">{{ $category->name }}
+                                                        <li class="menu-title cursor-pointer" onclick="window.location.href='{{ route('front.show-product-category', $category->slug) }}'">{{ $category->name }}
                                                         </li>
                                                         @foreach ($category->childs as $child)
                                                             <li><a
