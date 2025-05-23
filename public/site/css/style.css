@@ -1382,7 +1382,7 @@ a:hover, a:active {
   line-height: 1;
 }
 #site-logo img {
-  height: 68px;
+  height: 60px;
 }
 #site-logo img.logo-static {
   display: block;
@@ -10405,7 +10405,7 @@ ul.style-default li:last-child, ol.style-default li:last-child {
 
 @media (max-width: 768px) {
     .header_mobile .mlogo_wrapper img{
-        height: 55px;
+        height: 50px;
     }
 }
 

@@ -122,6 +122,9 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    @foreach ($specialCategories as $category)
+                                    <li><a href="{{ route('front.show-product-category', $category->slug) }}">{{ $category->name }}</a></li>
+                                    @endforeach
                                     <li class="menu-item-has-children {{ Route::is('front.list-blog') ? 'current-menu-item current-menu-ancestor' : '' }}">
                                         <a href="javascript:void(0)">Blog</a>
                                         <ul class="sub-menu">

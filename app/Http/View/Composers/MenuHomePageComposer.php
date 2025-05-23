@@ -4,6 +4,7 @@ namespace App\Http\View\Composers;
 
 use App\Model\Admin\Banner;
 use App\Model\Admin\Category;
+use App\Model\Admin\CategorySpecial;
 use App\Model\Admin\PostCategory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,9 @@ class MenuHomePageComposer
 
         // $galleries = File::query()->where(['status' => 1])->latest()->get();
 
-        $view->with(['productCategories' => $productCategories, 'postCategories' => $postCategories, 'services' => $services]);
+        $specialCategories = CategorySpecial::query()->where('type', 10)->orderBy('order_number')->get();
+
+        $view->with(['productCategories' => $productCategories, 'postCategories' => $postCategories, 'services' => $services, 'specialCategories' => $specialCategories]);
     }
 }
+    
