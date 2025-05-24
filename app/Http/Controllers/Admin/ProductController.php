@@ -25,6 +25,7 @@ use App\Http\Controllers\Controller;
 use \Carbon\Carbon;
 use DB;
 use App\Helpers\FileHelper;
+use App\Model\Admin\Category;
 use App\Model\Admin\Config;
 use App\Model\Admin\ProductGallery;
 use App\Model\Common\User;
@@ -67,6 +68,10 @@ class ProductController extends Controller
 			->editColumn('cate_id', function ($object) {
 					return $object->category ? $object->category->name : '';
 			})
+            ->editColumn('category_ids', function ($object) {
+                $categories = Category::query()->whereIn('id', $object->category_ids)->get();
+                return $categories->implode('name', ', ');
+            })
             ->addColumn('category_special', function ($object) {
                 return $object->category_specials->implode('name', ', ');
             })
@@ -85,7 +90,7 @@ class ProductController extends Controller
 
                 }
 
-                $result = $result . ' <a href="" title="thêm vào danh mục đặc biệt" class="dropdown-item add-category-special"><i class="fa fa-angle-right"></i>Thêm vào danh mục đặc biệt</a>';
+                // $result = $result . ' <a href="" title="thêm vào danh mục đặc biệt" class="dropdown-item add-category-special"><i class="fa fa-angle-right"></i>Thêm vào danh mục đặc biệt</a>';
                 $result = $result . '</div></div>';
                 return $result;
 			})
@@ -134,6 +139,7 @@ class ProductController extends Controller
             $object->short_link = $request->short_link;
             $object->person_in_charge = $request->person_in_charge;
             $object->button_type = $request->button_type ?? 0;
+            $object->category_ids = array_map('intval', $request->category_ids);
 			$object->save();
 
 			FileHelper::uploadFile($request->image, 'products', $object->id, ThisModel::class, 'image',99);
@@ -169,6 +175,7 @@ class ProductController extends Controller
 	public function edit($id)
 	{
 		$object = ThisModel::getDataForEdit($id);
+
         $tags = Tag::query()->where('type', Tag::TYPE_PRODUCT)->latest()->get();
         $config = Config::query()->first(['revenue_percent_1', 'revenue_percent_2', 'revenue_percent_3', 'revenue_percent_4', 'revenue_percent_5']);
         $object->tag_ids = $object->tags->pluck('id')->toArray();
@@ -216,6 +223,7 @@ class ProductController extends Controller
             $object->short_link = $request->short_link;
             $object->person_in_charge = $request->person_in_charge;
             $object->button_type = $request->button_type ?? 0;
+            $object->category_ids = array_map('intval', $request->category_ids);
 			$object->save();
 
 			if($request->image) {

@@ -33,8 +33,14 @@ class Product extends BaseModel
         2 => 'Hết hàng'
     ];
 
-    protected $fillable = ['name', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at',
-        'price', 'cate_id', 'base_price', 'body', 'intro', 'slug', 'short_des', 'manufacturer_id', 'origin_id'];
+    protected $casts = [
+        'category_ids' => 'array',
+    ];
+
+    protected $fillable = [
+        'name', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at',
+        'price', 'cate_id', 'base_price', 'body', 'intro', 'slug', 'short_des', 'manufacturer_id', 'origin_id', 'category_ids'
+    ];
 
     use Sluggable;
     use SluggableScopeHelpers;
@@ -142,11 +148,16 @@ class Product extends BaseModel
 
     public function getPercentDiscountAttribute()
     {
-        $percentDiscount = round((($this->base_price - $this->price) / $this->base_price) * 100 );
+        $percentDiscount = round((($this->base_price - $this->price) / $this->base_price) * 100);
 
         return $percentDiscount;
     }
 
+    public function getCategoryIdsAttribute($value)
+    {
+        $array = json_decode($value, true);
+        return is_array($array) ? array_map('intval', $array) : [];
+    }
 
     public static function searchByFilter($request)
     {
@@ -316,7 +327,7 @@ class Product extends BaseModel
         $attachments = [$this->attachments];
 
         if ($documents) {
-            foreach ($documents as $document)  {
+            foreach ($documents as $document) {
                 $filename = $document->getClientOriginalName();
                 $name = Str::slug(str_replace("/", "", $filename));
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -396,7 +407,7 @@ class Product extends BaseModel
                         ->orWhereHas('manufacturer', function ($q) use ($keyword) {
                             $q->where('manufacturers.name', 'like', '%' . $keyword . '%');
                         });
-                })->orWhereHas('tags', function ($q) use ($keyword){
+                })->orWhereHas('tags', function ($q) use ($keyword) {
                     $q->where('tags.name', 'like', '%' . $keyword . '%');
                 });
             });
@@ -407,7 +418,7 @@ class Product extends BaseModel
                         ->orWhereHas('manufacturer', function ($q) use ($keyword) {
                             $q->where('manufacturers.name', 'like', '%' . $keyword . '%');
                         });
-                })->orWhereHas('tags', function ($q) use ($keyword){
+                })->orWhereHas('tags', function ($q) use ($keyword) {
                     $q->where('tags.name', 'like', '%' . $keyword . '%');
                 });
             });
@@ -418,11 +429,10 @@ class Product extends BaseModel
                         ->orWhereHas('manufacturer', function ($q) use ($keyword) {
                             $q->where('manufacturers.name', 'like', '%' . $keyword . '%');
                         });
-                })->orWhereHas('tags', function ($q) use ($keyword){
+                })->orWhereHas('tags', function ($q) use ($keyword) {
                     $q->where('tags.name', 'like', '%' . $keyword . '%');
                 });
             });
-
         }
 
         if ($request->get('minPrice')) {

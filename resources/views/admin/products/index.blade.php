@@ -128,8 +128,9 @@
                 {data: 'name', title: 'Tên'},
                 // {data: 'base_price', title: "Đơn giá chưa giảm"},
                 {data: 'price', title: "Đơn giá bán"},
-                {data: 'cate_id', title: 'Danh mục'},
-                {data: 'category_special', title: 'Danh mục đặc biệt'},
+                // {data: 'cate_id', title: 'Danh mục'},
+                {data: 'category_ids', title: 'Danh mục'},
+                // {data: 'category_special', title: 'Danh mục đặc biệt'},
                 {
                     data: 'status',
                     title: "Trạng thái",
@@ -215,37 +216,37 @@
             });
 
             // Submit mode mới
-            $scope.submit = function () {
-                $scope.loading.submit = false;
-                $.ajax({
-                    type: 'POST',
-                    url: "/uptek/products/" + $scope.formEdit.id + "/update",
-                    headers: {
-                        'X-CSRF-TOKEN': CSRF_TOKEN
-                    },
-                    processData: false,
-                    contentType: false,
-                    data: $scope.formEdit.submit_data,
-                    success: function (response) {
-                        if (response.success) {
-                            $('#edit-modal').modal('hide');
-                            toastr.success(response.message);
-                            if (datatable.datatable) datatable.ajax.reload();
-                            $scope.errors = null;
-                        } else {
-                            toastr.warning(response.message);
-                            $scope.errors = response.errors;
-                        }
-                    },
-                    error: function (e) {
-                        toastr.error('Đã có lỗi xảy ra');
-                    },
-                    complete: function () {
-                        $scope.loading.submit = false;
-                        $scope.$applyAsync();
-                    }
-                });
-            }
+            // $scope.submit = function () {
+            //     $scope.loading.submit = false;
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: "/uptek/products/" + $scope.formEdit.id + "/update",
+            //         headers: {
+            //             'X-CSRF-TOKEN': CSRF_TOKEN
+            //         },
+            //         processData: false,
+            //         contentType: false,
+            //         data: $scope.formEdit.submit_data,
+            //         success: function (response) {
+            //             if (response.success) {
+            //                 $('#edit-modal').modal('hide');
+            //                 toastr.success(response.message);
+            //                 if (datatable.datatable) datatable.ajax.reload();
+            //                 $scope.errors = null;
+            //             } else {
+            //                 toastr.warning(response.message);
+            //                 $scope.errors = response.errors;
+            //             }
+            //         },
+            //         error: function (e) {
+            //             toastr.error('Đã có lỗi xảy ra');
+            //         },
+            //         complete: function () {
+            //             $scope.loading.submit = false;
+            //             $scope.$applyAsync();
+            //         }
+            //     });
+            // }
 
             $('#table-list').on('click', '.add-category-special', function () {
                 event.preventDefault();

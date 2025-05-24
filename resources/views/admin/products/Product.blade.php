@@ -223,6 +223,7 @@
                 short_link: this.short_link,
                 person_in_charge: this.person_in_charge,
                 button_type: this.button_type,
+                category_ids: this.category_ids,
             }
 
             data = jsonToFormData(data);

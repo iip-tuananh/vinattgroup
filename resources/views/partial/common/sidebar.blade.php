@@ -31,14 +31,14 @@
                 </a>
             </li>
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
                 <a href="{{route('category_special.index')}}" class="nav-link {{ Request::routeIs('category_special.index') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-stream"></i>
                     <p>
                         Danh mục đặc biệt
                     </p>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item has-treeview  {{ request()->is('common/products') || request()->is('uptek/products*') || request()->is('admin/categories') || request()->is('admin/categories*') ? 'menu-open' : '' }} ">
                 <a href="#" class="nav-link {{ Request::routeIs('Category.index') || Request::routeIs('Category.create') || Request::routeIs('Category.edit') || Request::routeIs('Category.show') || Request::routeIs('Product.index') || Request::routeIs('Product.create') || Request::routeIs('Product.edit') || Request::routeIs('Product.show') ? 'active' : '' }}">

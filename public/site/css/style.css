@@ -1707,7 +1707,7 @@ a:hover, a:active {
   white-space: nowrap;
   padding: 20px 0px;
   position: absolute;
-  top: 100%;
+  top: 80%;
   left: -34px;
   z-index: 10;
   visibility: hidden;

@@ -33,18 +33,19 @@ class ProductStoreRequest extends BaseRequest
             'body' => 'nullable',
             'base_price' => 'nullable|integer',
             'price' => 'nullable|integer',
-            'revenue_price' => 'nullable|numeric|max:' . $this->input('price'),
-            'revenue_percent_5' => 'nullable|numeric|min:0|max:100',
-            'revenue_percent_4' => 'nullable|numeric|min:0|max:100',
-            'revenue_percent_3' => 'nullable|numeric|min:0|max:100',
-            'revenue_percent_2' => 'nullable|numeric|min:0|max:100',
-            'revenue_percent_1' => 'nullable|numeric|min:0|max:100',
+            // 'revenue_price' => 'nullable|numeric|max:' . $this->input('price'),
+            // 'revenue_percent_5' => 'nullable|numeric|min:0|max:100',
+            // 'revenue_percent_4' => 'nullable|numeric|min:0|max:100',
+            // 'revenue_percent_3' => 'nullable|numeric|min:0|max:100',
+            // 'revenue_percent_2' => 'nullable|numeric|min:0|max:100',
+            // 'revenue_percent_1' => 'nullable|numeric|min:0|max:100',
             'status' =>'required|in:0,1',
             'image' => 'required|file|mimes:jpg,jpeg,png|max:3000',
             'galleries' => 'nullable|array|min:1|max:20',
             'galleries.*.image' => 'nullable|file|mimes:png,jpg,jpeg|max:10000',
             'post_ids' => 'nullable|array|max:5',
             'videos' => 'nullable|array',
+            'category_ids' => 'required|array|min:1',
             // 'button_type' => 'required|in:0,1',
             // 'person_in_charge' => 'required_if:type,0|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
             // 'aff_link' => 'required_if:type,1|url',
@@ -53,7 +54,7 @@ class ProductStoreRequest extends BaseRequest
         ];
 
         if($this->input('type') == 0) {
-            $rules['cate_id'] = 'required|exists:categories,id';
+            // $rules['cate_id'] = 'required|exists:categories,id';
             // $rules['person_in_charge'] = 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
         }
 

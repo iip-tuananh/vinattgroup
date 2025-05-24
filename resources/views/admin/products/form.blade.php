@@ -53,14 +53,23 @@
         </div> --}}
         <div class="form-group custom-group mb-4">
             <label class="form-label" ng-class="{'required-label': form.type == 0}">Danh mục sản phẩm</label>
-            <ui-select class="" remove-selected="true" ng-model="form.cate_id" theme="select2" ng-change="changeCategory(form.cate_id)">
+            <ui-select remove-selected="false" multiple ng-model="form.category_ids">
+                <ui-select-match placeholder="Chọn danh mục">
+                    <% $item.name %>
+                </ui-select-match>
+                <ui-select-choices
+                    repeat="item.id as item in (form.all_categories | filter: $select.search)">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
+            {{-- <ui-select class="" remove-selected="true" ng-model="form.cate_id" theme="select2" ng-change="changeCategory(form.cate_id)">
                 <ui-select-match placeholder="Chọn danh mục">
                     <% $select.selected.name %>
                 </ui-select-match>
                 <ui-select-choices repeat="t.id as t in (form.all_categories | filter: $select.search)">
                     <span ng-bind="t.name"></span>
                 </ui-select-choices>
-            </ui-select>
+            </ui-select> --}}
             <span class="invalid-feedback d-block" role="alert">
                 <strong>
                     <% errors.cate_id[0] %>
